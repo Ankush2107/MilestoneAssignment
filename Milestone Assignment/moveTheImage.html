@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Movement</title>
+  <style>
+    #image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: top 0.2s ease, left 0.2s ease;
+    }
+  </style>
+</head>
+<body>
+  <img id="image" src="https://wallpapers.com/images/featured/shahrukh-khan-hd-mon6h4s3y2uf6krc.jpg" alt="Moving Image">
+
+  <script>
+    const image = document.getElementById('image');
+    let topPosition = 0;
+    let leftPosition = 0;
+    const movementAmount = 10;
+
+    document.addEventListener('keydown', function(event) {
+      const key = event.key || event.keyCode;
+
+      switch (key) {
+        case 'ArrowUp':
+        case '38':
+          topPosition -= movementAmount;
+          break;
+        case 'ArrowDown':
+        case '40':
+          topPosition += movementAmount;
+          break;
+        case 'ArrowLeft':
+        case '37':
+          leftPosition -= movementAmount;
+          break;
+        case 'ArrowRight':
+        case '39':
+          leftPosition += movementAmount;
+          break;
+      }
+
+      image.style.top = topPosition + 'px';
+      image.style.left = leftPosition + 'px';
+    });
+  </script>
+</body>
+</html>
